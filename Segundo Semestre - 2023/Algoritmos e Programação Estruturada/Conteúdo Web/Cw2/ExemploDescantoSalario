@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    
+    float salario, inss, ir, sal_liquido;
+    
+    printf("Digite seu salário bruto: ");
+    scanf("%f", &salario);
+    
+    if(salario <= 1693.72) {
+        inss = salario * 0.08;
+    } else if (salario > 1693.72 && salario <= 2822.90) {
+        inss = salario * 0.09;
+    } else if (salario > 2822.90 && salario <= 5646.80) {
+        inss = salario * 0.11;
+    } else {
+        inss = 621.04;
+    }
+
+    if(salario <= 1903.98) {
+        ir = 0;
+    } else if (salario > 1903.98 && salario <=2826.65) {
+        ir = salario * 0.075;
+    } else if (salario > 2826.65 && salario <= 3751.05) {
+        ir = salario * 0.15;
+    } else if (salario > 3751.05 && salario <= 4664.68) {
+        ir = salario * 0.225;
+    } else {
+        ir = salario * 0.275;
+    }
+    
+    sal_liquido = (salario - inss) - ir;
+    
+    printf("Desconto INSS: %.2f,  Desconto IR %.2f e o salário ficou %.2f", inss, ir, sal_liquido);
+
+    return 0;
+}
