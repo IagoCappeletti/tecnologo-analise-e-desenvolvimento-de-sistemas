@@ -3,8 +3,12 @@
 int main() {
     
     float salario, inss, ir, sal_liquido;
+    int cont = 0;
+    char resp;
     
-    printf("Digite seu salário bruto: ");
+    do{
+    
+    printf("\nDigite seu salário bruto: ");
     scanf("%f", &salario);
     
     if(salario <= 1693.72) {
@@ -31,7 +35,15 @@ int main() {
     
     sal_liquido = (salario - inss) - ir;
     
-    printf("Desconto INSS: %.2f,  Desconto IR %.2f e o salário ficou %.2f", inss, ir, sal_liquido);
-
+    printf("\nDesconto INSS: %.2f,  Desconto IR %.2f e o salário ficou %.2f", inss, ir, sal_liquido);
+    printf("\nDigite 's' para continuar ou 'n' para sair: ");
+    
+    scanf(" %c", &resp);
+    cont++;
+    
+  } while (resp =='s');
+  
+  printf("Você rodou o código: %d", cont);
+  
     return 0;
 }
